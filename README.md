@@ -53,9 +53,9 @@ On my system, I created a vm called `test` so I would then make a symlink called
 ln -s ./pxelinux.0 test.pxe
 ```
 
-In windows, open an admin powershell window: 
+In windows, while one can create symlinks as admin in powershell, it is more simple to copy the file:
 ```shell
-New-Item -ItemType SymbolicLink -Path "test.pxe" -Target ".\pxelinux.0"
+copy \.pxelinux.0 test.pxe
 ```
 
 ## Boot the VM
