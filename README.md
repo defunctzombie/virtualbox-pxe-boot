@@ -55,7 +55,7 @@ ln -s ./pxelinux.0 test.pxe
 
 In windows, while one can create symlinks as admin in powershell, it is more simple to copy the file:
 ```shell
-copy \.pxelinux.0 test.pxe
+copy .\pxelinux.0 test.pxe
 ```
 
 ## Boot the VM
