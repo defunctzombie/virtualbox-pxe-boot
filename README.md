@@ -34,8 +34,9 @@ One liner to download and extract the TFTP folder
 curl https://codeload.github.com/defunctzombie/virtualbox-pxe-boot/tar.gz/master | tar zx --strip-components 1
 ```
 
+Windows powershell (assumes you have downloaded and installed a binary curl.exe, otherwise 
 ```shell
-foo bar
+cmd.exe /c 'curl.exe https://codeload.github.com/defunctzombie/virtualbox-pxe-boot/tar.gz/master | tar zxf - --strip-components 1'
 ````
 
 ## Symlink pxelinux.0 to vmname.pxe
