@@ -23,15 +23,21 @@ Unfortunately VirtualBox does not provide any PXE boot configuration files and o
 
 To make it easier, I have provided all of the files needed in this repo in the TFTP folder. Copy everything in TFTP folder of this repo to the VirtualBox storage directory. Depending on your system it will be in a different location.
 
-On OSX it is `~/Library/Virtualbox/TFTP`  
-On Linux it is `~/.config/VirtualBox/TFTP/`
+In OSX it is `~/Library/Virtualbox/TFTP`  
+In Linux it is `~/.config/VirtualBox/TFTP/`
+In Windows 10 Powershell it is `~\.VirtualBox\`
 
-Note: You may have to create this directory if it doesn't exist.
+Note: You may want to create this directory if it doesn't exist, but our download below will do the same thing for you
 
 One liner to download and extract the TFTP folder
 ```shell
 curl https://codeload.github.com/defunctzombie/virtualbox-pxe-boot/tar.gz/master | tar zx --strip-components 1
 ```
+
+Windows powershell (assumes you have downloaded and installed a binary curl.exe, otherwise 
+```shell
+cmd.exe /c 'curl.exe https://codeload.github.com/defunctzombie/virtualbox-pxe-boot/tar.gz/master | tar zxf - --strip-components 1'
+````
 
 ## Symlink pxelinux.0 to vmname.pxe
 
@@ -46,6 +52,11 @@ On my system, I created a vm called `test` so I would then make a symlink called
 
 ```shell
 ln -s ./pxelinux.0 test.pxe
+```
+
+In windows, while one can create symlinks as admin in powershell, it is more simple to copy the file:
+```shell
+copy .\pxelinux.0 test.pxe
 ```
 
 ## Boot the VM
